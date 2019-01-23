@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Locatie</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ locatie.id }}</td>
+            </tr>
+            <tr>
+                <th>Vestiging</th>
+                <td>{{ locatie.vestiging }}</td>
+            </tr>
+            <tr>
+                <th>Plaats</th>
+                <td>{{ locatie.plaats }}</td>
+            </tr>
+            <tr>
+                <th>Adres</th>
+                <td>{{ locatie.adres }}</td>
+            </tr>
+            <tr>
+                <th>Postcode</th>
+                <td>{{ locatie.postcode }}</td>
+            </tr>
+            <tr>
+                <th>Telefoonnummer</th>
+                <td>{{ locatie.telefoonnummer }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('locatie_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('locatie_edit', { 'id': locatie.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

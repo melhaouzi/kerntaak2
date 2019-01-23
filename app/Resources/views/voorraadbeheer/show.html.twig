@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Voorraadbeheer</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ voorraadbeheer.id }}</td>
+            </tr>
+            <tr>
+                <th>Productnaam</th>
+                <td>{{ voorraadbeheer.productnaam }}</td>
+            </tr>
+            <tr>
+                <th>Locatie</th>
+                <td>{{ voorraadbeheer.locatie }}</td>
+            </tr>
+            <tr>
+                <th>Aantal</th>
+                <td>{{ voorraadbeheer.aantal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('voorraadbeheer_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('voorraadbeheer_edit', { 'id': voorraadbeheer.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

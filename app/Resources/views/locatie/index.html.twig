@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Locaties list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Vestiging</th>
+                <th>Plaats</th>
+                <th>Adres</th>
+                <th>Postcode</th>
+                <th>Telefoonnummer</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for locatie in locaties %}
+            <tr>
+                <td><a href="{{ path('locatie_show', { 'id': locatie.id }) }}">{{ locatie.id }}</a></td>
+                <td>{{ locatie.vestiging }}</td>
+                <td>{{ locatie.plaats }}</td>
+                <td>{{ locatie.adres }}</td>
+                <td>{{ locatie.postcode }}</td>
+                <td>{{ locatie.telefoonnummer }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('locatie_show', { 'id': locatie.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('locatie_edit', { 'id': locatie.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('locatie_new') }}">Create a new locatie</a>
+        </li>
+    </ul>
+{% endblock %}

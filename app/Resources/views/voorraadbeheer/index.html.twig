@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Voorraadbeheers list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Productnaam</th>
+                <th>Locatie</th>
+                <th>Aantal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voorraadbeheer in voorraadbeheers %}
+            <tr>
+                <td><a href="{{ path('voorraadbeheer_show', { 'id': voorraadbeheer.id }) }}">{{ voorraadbeheer.id }}</a></td>
+                <td>{{ voorraadbeheer.productnaam }}</td>
+                <td>{{ voorraadbeheer.locatie }}</td>
+                <td>{{ voorraadbeheer.aantal }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('voorraadbeheer_show', { 'id': voorraadbeheer.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('voorraadbeheer_edit', { 'id': voorraadbeheer.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('voorraadbeheer_new') }}">Create a new voorraadbeheer</a>
+        </li>
+    </ul>
+{% endblock %}
